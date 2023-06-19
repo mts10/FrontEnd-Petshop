@@ -18,7 +18,7 @@ function Detalhes() {
     return (
         <Container>
             <div className="movies">
-                <img src={movies.poster} alt={movies.titulo} />
+                <img src={movies.poster}/>
 
                 <div className="detalhes">
                     <h1>Nome: {movies.titulo}</h1>
