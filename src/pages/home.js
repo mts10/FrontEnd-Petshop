@@ -113,14 +113,14 @@ function Home() {
   
         return (
         <Container>
-                    <h1>Filmes</h1>
+                    <h1>Ecommerce Petshop</h1>
             <MovieList>
             <div className="search-container">
                 <input type="text" 
                 value={searchTerm} 
                 onChange={handleSearchChange} 
                 className="search-input"
-                placeholder="Buscar Filmes.."
+                placeholder="Buscar produto..."
                 />
                 <button 
                 className="search-button "

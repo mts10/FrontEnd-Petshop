@@ -21,9 +21,11 @@ function Detalhes() {
                 <img src={movies.poster} alt={movies.titulo} />
 
                 <div className="detalhes">
-                    <h1>Título: {movies.titulo}</h1>
-                    <span> Ano: {movies.ano}</span>
-                    <span> Nota: {movies.nota}</span>
+                    <h1>Nome: {movies.titulo}</h1>
+                    <span> Categoria: {movies.ano}</span>
+                    <span> Descrição: {movies.nota}</span>
+                    <span>Preço:</span>
+                    <span>Nota geral:</span>
                     <Link to="/">
                         <button>Voltar</button>
                     </Link>
