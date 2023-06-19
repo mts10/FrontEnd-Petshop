@@ -136,8 +136,8 @@ function Home() {
                     <select id="orderby" className="form-control" value={`${orderBy},${orderDirection}`} onChange={handleOrderByChange}>                            
                     <option value="titulo,asc">Título (A-Z)</option>
                     <option value="titulo,desc">Título (Z-A)</option>
-                    <option value="ano,asc">Ano antigo</option>
-                    <option value="ano,desc">Ano recente</option>
+                    <option value="ano,asc">Menor preço</option>
+                    <option value="ano,desc">Maior preço</option>
                     <option value="nota,asc">Nota menor</option>
                     <option value="nota,desc">Nota maior</option>
                     </select>

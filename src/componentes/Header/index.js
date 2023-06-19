@@ -8,8 +8,9 @@ export default function Header() {
                 <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"></svg>
             </a>
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="/login" class="btn btn-dark">Login</a></li>
                 <li><a href="/" class="btn btn-dark">Home</a></li>
-                <li><a href="/cadastro" class="btn btn-dark">Cadastrar</a></li>
+                <li><a href="/cadastro" class="btn btn-dark">Cadastrar</a></li>   
             </ul>
         </header>
     </div>
