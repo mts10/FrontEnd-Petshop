@@ -9,8 +9,8 @@ export default function Header() {
             </a>
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="/login" class="btn btn-dark">Login</a></li>
-                <li><a href="/" class="btn btn-dark">Home</a></li>
-                <li><a href="/carrinho" class="btn btn-dark">Ver Carrinho</a></li>
+                <li><a href="/" class="btn btn-secondary">Home</a></li>
+                <li><a href="/carrinho" class="btn btn-light">Ver Carrinho</a></li>
                 <li><a href="/cadastro" class="btn btn-dark">Cadastrar</a></li>   
             </ul>
         </header>
