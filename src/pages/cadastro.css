@@ -1,0 +1,43 @@
+.containers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+
+}
+
+.items {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.items:last-child {
+  margin-right: 0;
+}
+
+.btn {
+  font-size: 1rem;
+  padding: 1rem 2.5rem;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  margin:7px;
+ background-color: rgb(14, 14, 26);
+  color: rgb(234, 234, 234);
+  font-weight: 500;
+  transition: 0.6s;
+  
+}
+
+.btn:active {
+  scale: 0.92;
+}
+
+.btn:hover {
+  background: rgb(2, 78, 65);
+    background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
+    color: rgb(4, 4, 38);
+
+
+}
