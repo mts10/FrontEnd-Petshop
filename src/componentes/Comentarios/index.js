@@ -3,18 +3,18 @@ const comentarios = [
         id: 1,
 
         usuario: "Saimon",
-        mensagem: "Velozes e furiosos 10 vai botar esses ai no bolso.",
+        mensagem: "O preço está meio alto, mas compensa.",
     },
     {
         id: 2,
 
         usuario: "Salles",
-        mensagem: "Filme muito bom, amei!",
+        mensagem: "Produto de muita qualidade, amei!",
     },
     {
         id: 3,
         usuario: "Henrique",
-        mensagem: "Melhor filme que ja assisti!",
+        mensagem: "Super indico esses produtos, alta qualidade e preço muito acessivel.",
     },
 ];
 

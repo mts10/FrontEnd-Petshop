@@ -14,7 +14,7 @@ function Cadastro() {
   const [numeroCvc, setNumeroCvc] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const [selectedPlan, setSelectedPlan] = useState('');
+  const [image, setImage] = useState('');
 
   function handleNameChange(event) {
     setName(event.target.value);
@@ -27,6 +27,9 @@ function Cadastro() {
   }
   function handleCpfChange(event) {
     setCpf(event.target.value);
+  }
+  function handleImageChange(event) {
+    setImage(event.target.value);
   }
   function handleNomeCartaoChange(event) {
     setNomeCartao(event.target.value);
@@ -56,6 +59,7 @@ function Cadastro() {
       Telefone: telefone,
       Endereco: endereco,
       Cpf: cpf,
+      Imagem: image,
       NomeCartao: nomeCartao,
       NumeroCartao: numeroCartao,
       NumeroCVC: numeroCvc,
@@ -98,6 +102,11 @@ function Cadastro() {
           <div className="mt-3">
             <label >CPF:</label><br/>
             <input className="form-control" placeholder="CPF" id="CpfInput" type="text" value={cpf} onChange={handleCpfChange} />
+          </div>
+          <div className="mt-3">
+          <label ><b>Carregue sua foto de perfil:</b></label><br/>
+          <input type="file" name="image" onChange={e => setImage(e.target.files[0])}/> <br/>
+
           </div>
         </div>
         <div className="col">

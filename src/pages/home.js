@@ -5,7 +5,6 @@ import Keys from "../Config/key";
 import { useState } from "react";
 import React, { useEffect } from "react"
 import { Link } from "react-router-dom";
-import Assistido from "../componentes/Button/assistido";
 
 
 
@@ -153,11 +152,7 @@ function Home() {
                             </Link>
                             <span>{movie.titulo}</span>
                             <span>Nota: {movie.nota}</span>
-                            <Assistido
-                                assistido={movie.assistido}
-                                onClick={handleAssistidoClick}
-                                id={movie.id}
-                            />
+                            
                         </Movie>
                     );
                 })}
