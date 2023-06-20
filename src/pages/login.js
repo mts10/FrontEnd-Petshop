@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import '../pages/login.css';
+
 export default function Login(){
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
@@ -20,13 +22,13 @@ export default function Login(){
         alert('Login realizado com sucesso!');
     };
   return (
-    <div className="container">
+    <div className="container text-center" >
     <div className="mt-5 text-center">
       <h1> Login</h1>
       <p>Faça seu login para concluir a compra</p>
     </div>
-    <form onSubmit={handleSubmit} >
-    <div className="mt-3">
+    <form onSubmit={handleSubmit} className="formlogin" >
+        <div className="mt-3">
             <label >Email:</label><br />
             <input className="form-control" placeholder="Insira seu email" id="EmailInput" type="text" value={email} onChange={handleEmailChange} />
           </div>
