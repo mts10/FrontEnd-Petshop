@@ -152,11 +152,16 @@ function Home() {
                             </Link>
                             <span>{movie.titulo}</span>
                             <span>Nota: {movie.nota}</span>
-                            
+                            <Link to={`/detalhes/${movie.id}`}>
+                            <button class="btn">Detalhes</button>
+                            </Link>
                         </Movie>
                     );
+                    
                 })}
+            
             </MovieList>
+            
             
         </Container >
     );
