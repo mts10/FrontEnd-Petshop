@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../pages/login.css';
+import { useParams, Link } from "react-router-dom";
 
 export default function Login(){
     const [email, setEmail] = useState('');
@@ -35,9 +36,12 @@ export default function Login(){
           <div className="mt-3">
             <label >Senha:</label><br/>
             <input className="form-control" placeholder="Insira sua senha" id="SenhaInput" type="text" value={senha} onChange={handleSenhaChange}/>
-          </div>
+          </div> <br/>
+          <p>Ainda não se cadastrou? <a href="/cadastro" class="btn btn-dark">Clique aqui</a>.</p>
           <div className="mt-5 text-center">
-          <button className="btn" onClick={handleSubmit}>Entrar</button>
+          <Link to="/" >
+          <button class="btn">Entrar</button>
+          </Link>
         </div>
     </form>
     </div>

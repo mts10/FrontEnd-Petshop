@@ -7,13 +7,6 @@ function Detalhes() {
     const { id } = useParams();
     const [movies, setMovies] = useState({});
 
-    const handleAdicionadoClick = (id) => {
-        setMovies(
-            movies.map((movie) =>
-                movie.id === id ? { ...movie, adicionado: !movie.adicionado } : movie
-            )
-        );
-    };
     useEffect(() => {
         fetch(`https://my-json-server.typicode.com/marycamila184/movies/movies/${id}`)
             .then((response) => response.json())
