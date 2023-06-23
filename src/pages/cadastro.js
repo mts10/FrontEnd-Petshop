@@ -78,7 +78,8 @@ function Cadastro() {
   return (
     <div className="container">
     <div className="mt-5 text-center">
-      <h1> Cadastrar|Atualizar Cliente </h1>
+      <h1> Cadastrar|Atualizar Perfil Cliente </h1>
+      
     </div>
     <form onSubmit={handleSubmit}>
       <div className="row mt-5">

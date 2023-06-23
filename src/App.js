@@ -8,13 +8,14 @@ import Detalhes from './pages/detalhes';
 import Footer from './componentes/Footer';
 import Error from './pages/error';
 import Login from './pages/login';
+import Carrinho from './pages/carrinho';
 function App() {
   return (
        <Router>
       <Header/>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/detalhes/:id' element={<Detalhes />} />
+          <Route path='/carrinho' element={<Carrinho />} />
           <Route path='/login' element={<Login/>} />
           <Route path='/cadastro' element={<Cadastro/>}/>
           <Route path='/error' element={<Error/>}/>
