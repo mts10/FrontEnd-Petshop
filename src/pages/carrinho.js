@@ -41,7 +41,9 @@ export default function Carrinho(){
       }
 
     return(
-        <div className="container">
+        <div className="container text-center">
+          <h1 >Checkout</h1>
+          <p>Finalize seu pedido</p>
       <form onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-md-6">
