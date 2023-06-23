@@ -8,7 +8,7 @@ function Detalhes() {
     const [movies, setMovies] = useState({});
 
     useEffect(() => {
-        fetch(`https://my-json-server.typicode.com/marycamila184/movies/movies/${id}`)
+        fetch(`https://my-json-server.typicode.com/marycamila184/movies/movies/${id}`)//altere segundo a endpoint do nosso backend
             .then((response) => response.json())
             .then((data) => {
                 setMovies(data);
@@ -22,10 +22,10 @@ function Detalhes() {
 
                 <div className="detalhes">
                     <h1>Nome: {movies.titulo}</h1>
-                    <span> Categoria: {movies.ano}</span>
-                    <span> Descrição: {movies.nota}</span>
-                    <span>Preço:</span>
-                    <span>Nota geral:</span>
+                    <span> Categoria: {movies.categoria}</span>
+                    <span> Descrição: {movies.descricao}</span>
+                    <span>Preço:  {movies.preço}</span>
+                    <span>Nota geral: {movies.nota}</span>
                     <Link to="/">
                         <button>Voltar</button>
                     </Link>
@@ -44,7 +44,7 @@ function Detalhes() {
                             </div>
                         ))
                     ) : (
-                        <p>Não identificams comentarios pra esse filme</p>
+                        <p>Não identificamos comentarios pra esse filme</p>
                     )}
                 </div>
         </Container>

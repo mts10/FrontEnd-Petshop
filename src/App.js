@@ -18,6 +18,7 @@ function App() {
           <Route path='/carrinho' element={<Carrinho />} />
           <Route path='/login' element={<Login/>} />
           <Route path='/cadastro' element={<Cadastro/>}/>
+          <Route path='/detalhes/:id' element={<Detalhes />} />
           <Route path='/error' element={<Error/>}/>
         </Routes>
         <Footer />
