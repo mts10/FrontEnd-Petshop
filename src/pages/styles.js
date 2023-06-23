@@ -14,10 +14,11 @@ h1 {
   }
 
   
-  .movies {
+  .produtos {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
   }
   
   img {

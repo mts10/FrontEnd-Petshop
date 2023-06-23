@@ -5,27 +5,28 @@ import comentarios from "../componentes/Comentarios";
 
 function Detalhes() {
     const { id } = useParams();
-    const [movies, setMovies] = useState({});
+    const [produtos, setProduto] = useState({});
 
     useEffect(() => {
-        fetch(`https://my-json-server.typicode.com/marycamila184/movies/movies/${id}`)//altere segundo a endpoint do nosso backend
+        fetch(`/produto/${id}`)
             .then((response) => response.json())
-            .then((data) => {
-                setMovies(data);
+            .then((data) => { 
+                setProduto(data)     
             });
+            
     }, [id]);
 
     return (
         <Container>
-            <div className="movies">
-                <img src={movies.poster}/>
+            <h1 style={{ textAlign: "center" }}>Detalhes do Produto</h1>
+            <div className="produtos">
+                <img src={produtos.image}/>
 
                 <div className="detalhes">
-                    <h1>Nome: {movies.titulo}</h1>
-                    <span> Categoria: {movies.categoria}</span>
-                    <span> Descrição: {movies.descricao}</span>
-                    <span>Preço:  {movies.preço}</span>
-                    <span>Nota geral: {movies.nota}</span>
+                    <span> Categoria: {produtos.categoria}</span>
+                    <span> Descrição: {produtos.descricao}</span>
+                    <span>Preço:  {produtos.preço}</span>
+                    <span>Nota geral: {produtos.nota}</span>
                     <Link to="/">
                         <button>Voltar</button>
                     </Link>

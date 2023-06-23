@@ -58,7 +58,7 @@ function Home() {
             .then(response => response.json())
             .then(data => setMovies(data))
             .catch(error => {
-                console.error('Erro ao carregar filmes:', error);
+                console.error('Erro ao carregar produtos:', error);
             });
     }, []);
 
