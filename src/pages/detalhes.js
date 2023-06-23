@@ -5,28 +5,34 @@ import comentarios from "../componentes/Comentarios";
 
 function Detalhes() {
     const { id } = useParams();
-    const [produtos, setProduto] = useState({});
+    const [product, setProduct] = useState({});
 
     useEffect(() => {
         fetch(`/produto/${id}`)
             .then((response) => response.json())
             .then((data) => { 
-                setProduto(data)     
+                setProduct(data)     
             });
             
     }, [id]);
+
 
     return (
         <Container>
             <h1 style={{ textAlign: "center" }}>Detalhes do Produto</h1>
             <div className="produtos">
-                <img src={produtos.image}/>
+                <img src={product.image}/>
 
                 <div className="detalhes">
-                    <span> Categoria: {produtos.categoria}</span>
-                    <span> Descrição: {produtos.descricao}</span>
-                    <span>Preço:  {produtos.preço}</span>
-                    <span>Nota geral: {produtos.nota}</span>
+                    <span> Categoria: {product.categoria}</span>
+                    <span> Descrição: {product.descricao}</span>
+                    <span>Preço:  {product.preço}</span>
+                    <span>Nota geral: {product.nota}</span>
+                    <div className="text-center mt-4">
+                    <button type="submit" className="btn btn-primary" >
+                     Adicionar ao carrinho
+                    </button>
+                </div>
                     <Link to="/">
                         <button>Voltar</button>
                     </Link>

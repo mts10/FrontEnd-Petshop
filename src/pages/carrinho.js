@@ -47,19 +47,13 @@ export default function Carrinho(){
           <div className="col-md-6">
             <h3 className="p-3">Produtos selecionados:</h3>
             <table className="table table-sm custom-table border">
-              <thead>
-                <tr>
-                  <th scope="col">Tipo do Produto</th>
-                  <th scope="col">Quantidade</th>
-                  <th scope="col">Valor</th>
-                </tr>
-              </thead>
               <tbody>
               {products.map((product, index) => (
                   <tr key={index}>
                     <td>{product.tipo}</td>
                     <td>{product.quantidade}</td>
                     <td>{product.valor}</td>
+                    
                   </tr>
                 ))}
               </tbody>
@@ -93,9 +87,17 @@ export default function Carrinho(){
                   <td>Produto</td>
                 </tr>
                 <tr>
-                  <td>PRODUTO</td>
+                  <td>Produto</td>
                 </tr>
               </tbody>
+             
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Total</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
             </table>
           </div>
           <div className="col-md-6">

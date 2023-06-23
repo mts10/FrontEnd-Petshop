@@ -41,7 +41,7 @@ function Cadastro() {
     }
  
 
-    api.post('/clientes', formData, config)
+    api.post('/users', formData, config)
     .then((response) => {
         console.log(response.data)
         alert(" O usuario " + response.data.codigo + " foi criado com sucesso!")
