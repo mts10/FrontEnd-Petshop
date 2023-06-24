@@ -116,7 +116,8 @@ return formatNumCartao;
           </div>
           <div className="mt-3">
             <label >Nome no Cartão:</label><br />
-            <input className="form-control" placeholder="Insira o nome que está no cartao" id="NomeCartaoInput" type="text" value={nomeCartao} onChange={(e) => { setNomeCartao(e.target.value) }} />
+            <input className="form-control" placeholder="Insira o nome que está no cartao" 
+            id="NomeCartaoInput" type="text" value={nomeCartao} onChange={(e) => { setNomeCartao(e.target.value) }} />
           </div>
           <div className="mt-3">
             <label >Número do Cartão:</label><br />
@@ -143,7 +144,7 @@ return formatNumCartao;
       <div>
         <div className="mt-5 text-center">
         <Link to="/" >
-          <button class="btn">Cadastrar</button>
+          <button className="btn">Cadastrar</button>
           </Link>
         </div>
       </div>

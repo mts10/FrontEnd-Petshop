@@ -9,6 +9,7 @@ import Footer from './componentes/Footer';
 import Error from './pages/error';
 import Login from './pages/login';
 import Carrinho from './pages/carrinho';
+import EditarPerfil from './pages/editarPerfil';
 function App() {
   return (
        <Router>
@@ -19,6 +20,7 @@ function App() {
           <Route path='/login' element={<Login/>} />
           <Route path='/cadastro' element={<Cadastro/>}/>
           <Route path='/detalhes/:id' element={<Detalhes />} />
+          <Route path='/editarPerfil' element={<EditarPerfil/>} />
           <Route path='/error' element={<Error/>}/>
         </Routes>
         <Footer />

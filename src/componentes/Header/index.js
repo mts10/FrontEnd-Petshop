@@ -11,7 +11,7 @@ export default function Header() {
                 <li><a href="/login" class="btn btn-dark">Login</a></li>
                 <li><a href="/" class="btn btn-secondary">Home</a></li>
                 <li><a href="/carrinho" class="btn btn-light">Carrinho</a></li>
-                <li><a href="/cadastro" class="btn btn-dark">Meu perfil</a></li>   
+                <li><a href="/editarPerfil" class="btn btn-dark">Atualizar Perfil</a></li>   
             </ul>
         </header>
     </div>

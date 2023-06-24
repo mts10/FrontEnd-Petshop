@@ -5,32 +5,39 @@ import comentarios from "../componentes/Comentarios";
 
 
 function Detalhes() {
+
     const { id } = useParams();
-    const [products, setProducts] = useState({});
+    const [product, setProduct] = useState({});
 
     useEffect(() => {
         fetch(`/product/${id}`)
             .then((response) => response.json())
             .then((data) => { 
-                setProducts(data)     
+                setProduct(data)     
             });
             
     }, [id]);
-
-
+      // Error
+  if (!product) {
+    return (
+      <div className="p-3 mb-2 bg-danger text-white">
+        <p className="text-center">Não foi possível encontrar os detalhes do produto. Tente novamente mais tarde!</p>
+      </div>
+    );
+  }
     return (
         <Container>
             <h1 style={{ textAlign: "center" }}>Detalhes do Produto</h1>
             <div className="produtos">
-                <img src={products.image}/>
-
+            <img src={`data:image/png;base64,${product.image}`} alt={product.nome} className="produto-imagem" /> <img src={product.image}/>
                 <div className="detalhes">
-                    <span> Categoria: {products.categoria}</span>
-                    <span> Descrição: {products.descricao}</span>
-                    <span>Preço:  {products.preço}</span>
-                    <span>Nota geral: {products.nota}</span>
-                    <div className="text-center mt-4">
-                    <button type="submit" className="btn btn-primary" >
+                    <span> Categoria: {product.categoria}</span>
+                    <span> Descrição: {product.descricao}</span>
+                    <span>Preço:  {product.preço}</span>
+                    <span>Nota geral: {product.nota}</span>
+
+                    <div className="text-center mt-5">
+                    <button type="submit">
                      Adicionar ao carrinho
                     </button>
                 </div>

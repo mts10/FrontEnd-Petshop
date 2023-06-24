@@ -53,7 +53,7 @@ export default function Login(){
           <p>Ainda não se cadastrou? <a href="/cadastro" class="btn btn-dark">Clique aqui</a>.</p>
           <div className="mt-5 text-center">
           <Link to="/" >
-          <button class="btn">Entrar</button>
+          <button className="btn">Entrar</button>
           </Link>
         </div>
     </form>

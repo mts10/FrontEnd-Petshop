@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 function Error() {
 
     return (
-        < div class="container" >
+        < div className="container" >
             <h1>Pagina não encontrada</h1>
         </div >
     )
