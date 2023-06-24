@@ -21,7 +21,7 @@ function Home() {
         const categories = response.data;
         setCategories(categories);
         if (categories.length > 0) {
-        setActiveCategory(categories[0]._id); // Define a primeira categoria como ativa por padrão
+        setActiveCategory(categories[0]._id); 
         }
     })
         .catch(err => console.error(err));

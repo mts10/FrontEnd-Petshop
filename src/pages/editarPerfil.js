@@ -51,6 +51,9 @@ import api from '../services/api';
             alert('Ocorreu um erro ao atualizar os dados do cliente. Por favor, tente novamente mais tarde.');
         }
     };
+    function AlertEditar() {
+        alert('Perfil atualizado! Boas Compras.')
+    }
     return (
         <div className="container">
     <div className="mt-5 text-center">
@@ -145,7 +148,7 @@ import api from '../services/api';
       <div>
         <div className="mt-5 text-center">
         <Link to="/" >
-          <button className="btn">Atualizar</button>
+          <button className="btn" onClick={AlertEditar}>Atualizar</button>
           </Link>
         </div>
       </div>

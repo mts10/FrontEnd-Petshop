@@ -71,25 +71,23 @@ export default function Carrinho(){
               </thead>
               <tbody>
                 <tr>
-                  <td>Produto</td>
+                  <td>Coleira</td>
+                  <td>2</td>
+                  <td>60,00R$</td>
+
                 </tr>
                 <tr>
-                  <td>Produto</td>
+                  <td></td>
                 </tr>
                 <tr>
-                  <td>Produto</td>
+                  <td>Ração pra Gato</td>
+                  <td>10</td>
+                  <td>100,00R$</td>
                 </tr>
                 <tr>
-                  <td>Produto</td>
-                </tr>
-                <tr>
-                  <td>Produto</td>
-                </tr>
-                <tr>
-                  <td>Produto</td>
-                </tr>
-                <tr>
-                  <td>Produto</td>
+                  <td>Canil</td>
+                  <td>3</td>
+                  <td>150,00R$</td>
                 </tr>
               </tbody>
              
@@ -97,7 +95,7 @@ export default function Carrinho(){
                 <tr>
                   <th scope="col"></th>
                   <th scope="col">Total</th>
-                  <th scope="col"></th>
+                  <th scope="col">310,00R$</th>
                 </tr>
               </thead>
             </table>
@@ -108,21 +106,21 @@ export default function Carrinho(){
               <div className="col-md-6">
                 <div className="form-group mt-2">
                   <label htmlFor="endereco">Endereço:</label>
-                  <input type="text" id="endereco" className="form-control" disabled />
+                  <input type="text" id="endereco" placeholder="Piraquara-Paraná" className="form-control" disabled />
                 </div>
                 <div className="form-group">
                   <label htmlFor="nome-cartao">Nome do cartão:</label>
-                  <input type="text" id="nome-cartao" className="form-control" disabled />
+                  <input type="text" id="nome-cartao" placeholder="******* ** *****" className="form-control" disabled />
                 </div>
               </div>
               <div className="col-md-6">
                 <div className="form-group mt-2">
                   <label htmlFor="numero-cartao">Número do cartão:</label>
-                  <input type="text" id="numero-cartao" className="form-control" disabled />
+                  <input type="text" id="numero-cartao" placeholder="4521-****-****-**22" className="form-control" disabled />
                 </div>
                 <div className="form-group">
                   <label htmlFor="cvc">CVC:</label>
-                  <input type="text" id="cvc" className="form-control" disabled />
+                  <input type="text" id="cvc" placeholder="***" className="form-control" disabled />
                 </div>
               </div>
             </div>
