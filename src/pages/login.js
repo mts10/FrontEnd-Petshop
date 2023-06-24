@@ -34,6 +34,9 @@ export default function Login(){
               setPassword("")
           })
   }
+  function AlertLogin() {
+    alert('Seja bem vindo! Boas compras!')
+}
      
   return (
     <div className="container text-center" >
@@ -53,7 +56,7 @@ export default function Login(){
           <p>Ainda não se cadastrou? <a href="/cadastro" class="btn btn-dark">Clique aqui</a>.</p>
           <div className="mt-5 text-center">
           <Link to="/" >
-          <button className="btn">Entrar</button>
+          <button className="btn" onClick={AlertLogin}>Entrar</button>
           </Link>
         </div>
     </form>

@@ -52,7 +52,7 @@ import api from '../services/api';
         }
     };
     function AlertEditar() {
-        alert('Perfil atualizado! Boas Compras.')
+        alert('Perfil atualizado com sucesso! Boas Compras.')
     }
     return (
         <div className="container">
