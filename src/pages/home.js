@@ -45,7 +45,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="mt-5 text-center">
       <h1>Ecommerce Petshop</h1>
       <ul>{renderProducts()}</ul>
     </div>
