@@ -76,4 +76,13 @@ span {
     line-height: 130%;
     margin-bottom: 1rem;
   }
+  
 `
+export const ProductsList = styled.ul`
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 2rem;
+  justify-items: center;
+  align-items: start;
+`;

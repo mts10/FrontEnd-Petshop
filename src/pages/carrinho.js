@@ -10,7 +10,7 @@ export default function Carrinho(){
     useEffect(() => {
         const fetchProducts = async () => {
           try {
-            const response = await fetch(""); // Altere a URL para o endpoint correto do seu backend
+            const response = await fetch("http://localhost:3000/products"); // Altere a URL para o endpoint correto do seu backend
             const data = await response.json();
             setProducts(data);
           } catch (error) {

@@ -1,93 +1,55 @@
 
-import { Movie } from "../componentes/Style/styleMovie";
 import { Container, MovieList, OrderByContainer } from "../componentes/Style/styles";
-import Keys from "../Config/key";
 import { useState } from "react";
 import React, { useEffect } from "react"
 import { Link } from "react-router-dom";
-
-
+import api from "../services/api";
+import { ProductsList } from "./styles";
 
 
 function Home() {
-    const [movies, setMovies] = useState([]);
+    const [products, setProducts] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
     const [orderBy, setOrderBy] = useState('titulo');
     const [orderDirection, setOrderDirection] = useState('asc');
-    const [searchTerm, setSearchTerm] = useState("");
-    const [filteredMovies, setFilteredMovies] = useState([]);
-
-
-    
-
-    const handleOrderByChange = (event) => {
-        const [newOrderBy, newOrderDirection] = event.target.value.split(',');
-        setOrderBy(newOrderBy);
-        setOrderDirection(newOrderDirection);
-    };
+    const [categories, setCategories] = useState([]);
+    const [activeCategory, setActiveCategory] = useState('');
 
     useEffect(() => {
-        const sortedMovies = sortMovies(movies, orderBy, orderDirection);
-        const filtered = searchTerm ? 
-          movies.filter(movie => movie.titulo.toLowerCase().includes(searchTerm.toLowerCase())) :
-          [];
-        setFilteredMovies(filtered);
-      }, [movies, searchTerm, orderBy, orderDirection]);
-    
-      function handleSearchTermChange(event) {
-        setSearchTerm(event.target.value);
-      }
-    
-
-    const handleSearchClick = () => {
-        const filteredMovies = movies.filter(movie => {
-          return movie.titulo.toLowerCase().includes(searchTerm.toLowerCase());
-        });
-        setMovies(filteredMovies);
-        setFilteredMovies(filteredMovies);
-      };
-
-      const handleSearchChange = (event) => {
-        setSearchTerm(event.target.value);
-        if(!event.target.value){
-            setFilteredMovies(movies);
+        api.get('/categories')
+        .then(response => {
+        const categories = response.data;
+        setCategories(categories);
+        if (categories.length > 0) {
+        setActiveCategory(categories[0]._id); // Define a primeira categoria como ativa por padrão
         }
-    };
-
-    useEffect(() => {
-        fetch('https://my-json-server.typicode.com/marycamila184/movies/movies')
-            .then(response => response.json())
-            .then(data => setMovies(data))
-            .catch(error => {
-                console.error('Erro ao carregar produtos:', error);
-            });
+    })
+        .catch(err => console.error(err));
     }, []);
 
-    
+    useEffect(() => {
+        api.get('/product', { params: { category: activeCategory } })
+         .then(response => response.data)
+            .then(data => {
+                const updatedProducts = data.map(produto => {
+                const imageData = arrayBufferToBase64(produto.image.data);
+                return { ...produto, image: imageData };
+                });
+                setProducts(updatedProducts);
+            })
+            .catch(err => console.error(err));
+    }, [activeCategory]);
 
-    
-    const sortMovies = (movies, orderBy, orderDirection) => {
-        return movies.sort((a, b) => {
-          const aValue = a[orderBy];
-          const bValue = b[orderBy];
-          if (aValue < bValue) {
-            return orderDirection === 'asc' ? -1 : 1;
-          } else if (aValue > bValue) {
-            return orderDirection === 'asc' ? 1 : -1;
-          } else {
-            return 0;
-          }
-        });
-      };
-      
+    if (!products) {
+        return <p>Carregando...</p>;
+    }
 
-    const compareMovies = (a, b) => {
+    const compareProdutos = (a, b) => {
         let comparison = 0;
         if (orderBy === 'titulo') {
-            comparison = a.titulo.localeCompare(b.titulo);
-        } else if (orderBy === 'ano') {
-            comparison = a.ano - b.ano;
-        } else if (orderBy === 'nota') {
-            comparison = a.nota - b.nota;
+            comparison = a.nome.localeCompare(b.nome);
+        } else if (orderBy === 'preco') {
+            comparison = parseFloat(a.preco) - parseFloat(b.preco);
         }
         if (orderDirection === 'desc') {
             comparison *= -1;
@@ -95,21 +57,44 @@ function Home() {
         return comparison;
     };
 
-
-    const sortedMovies = sortMovies(movies, orderBy, orderDirection);
-    
-  
-    const moviesToShow = filteredMovies.length > 0 ? filteredMovies : sortedMovies;
-
-  
-    const handleAssistidoClick = (id) => {
-        setMovies(
-            movies.map((movie) =>
-                movie.id === id ? { ...movie, assistido: !movie.assistido } : movie
-            )
-        );
+    const handleOrderByChange = (event) => {
+        const [newOrderBy, newOrderDirection] = event.target.value.split(',');
+        setOrderBy(newOrderBy);
+        setOrderDirection(newOrderDirection);
     };
-  
+
+    const arrayBufferToBase64 = (buffer) => {
+        let binary = '';
+        const bytes = [].slice.call(new Uint8Array(buffer));
+        bytes.forEach((b) => (binary += String.fromCharCode(b)));
+        return window.btoa(binary);
+    };
+
+    const sortedProducts = [...products].sort(compareProdutos);
+
+    const handleSearchChange= event => {
+        setSearchTerm(event.target.value);
+    };
+
+    const renderProductsByCategory = () => {
+        const filteredProducts = sortedProducts.filter(
+            produto => produto.nome.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+
+        return filteredProducts.map(produto => (
+            <li key={produto.codigo}>
+                <Link to={`/detalhes/${produto.codigo}`}>
+                <div className="card">
+                <img src={`data:image/png;base64,${produto.image}`} alt={produto.nome} className="card-img-top" />
+                <div className="card-body">
+                <h5 className="card-title">{produto.nome}</h5>
+                <p><b>R$ {produto.preco}</b></p>
+                </div>
+                </div>
+                </Link>
+            </li>
+        ));
+    }
         return (
         <Container>
                     <h1>Ecommerce Petshop</h1>
@@ -122,10 +107,9 @@ function Home() {
                 placeholder="Buscar produto..."
                 />
                 <button 
-                className="search-button "
-                onClick={handleSearchClick}>
+                className="search-button ">
                     Pesquisar:
-                    </button>
+                </button>
             </div>
             </MovieList>
             <OrderByContainer>
@@ -142,21 +126,9 @@ function Home() {
             </div>
             </OrderByContainer>
             <MovieList>
-                {sortedMovies && sortedMovies.map(movie => {
-                    return (
-                        <Movie key={movie.id}>
-                            <Link to={`/detalhes/${movie.id}`}>
-                                <img src={`${movie.poster}`} alt={movie.titulo} />
-                            </Link>
-                            <span>{movie.titulo}</span>
-                            <span>Nota: {movie.nota}</span>
-                            <Link to={`/detalhes/${movie.id}`}>
-                            <button class="btn">Detalhes</button>
-                            </Link>
-                        </Movie>
-                    );
-                    
-                })}
+            <ProductsList className="products-container">
+            {renderProductsByCategory()}
+            </ProductsList>
             
             </MovieList>
             

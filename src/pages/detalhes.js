@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { Container } from "./styles";
 import comentarios from "../componentes/Comentarios";
 
+
 function Detalhes() {
     const { id } = useParams();
     const [products, setProducts] = useState({});
