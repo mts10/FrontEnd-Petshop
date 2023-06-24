@@ -35,12 +35,6 @@ function Detalhes() {
                     <span> Descrição: {product.descricao}</span>
                     <span>Preço:  {product.preço}</span>
                     <span>Nota geral: {product.nota}</span>
-
-                    <div className="text-center mt-5">
-                    <button type="submit">
-                     Adicionar ao carrinho
-                    </button>
-                </div>
                     <Link to="/">
                         <button>Voltar</button>
                     </Link>
